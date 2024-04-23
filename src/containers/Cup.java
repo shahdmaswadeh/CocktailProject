@@ -14,7 +14,20 @@ import ingredients.Color;
  */
 public abstract class Cup extends Container {
     
+    private double price ;
+    private int numberOfCups;
+    
     //sizes are : small (250 ml) , medium (350 ml) , large (450 ml);
+
+    public Cup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
+        super(capacity, name, cocktailVolume, cocktail);
+        this.price = price;
+        this.numberOfCups = numberOfCups;
+    }
+
+    
+
+  
     
     
     

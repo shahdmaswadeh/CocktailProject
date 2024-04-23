@@ -19,17 +19,20 @@ public class CocktailProject {
         //Define a Scanner variable 
         Scanner input = new Scanner (System.in);
         //Define a blender
+        
         Blender blender=new Blender();
         
          
         
-        
+      
         
         
         
         //Welcome
         System.out.println("Welcome to our shop\nWe have the best Cocktails EVER!");
         System.out.println("What fruis do you want to add to your cocktail ?\n- Enter the number of the fruit then (1 for small amount 2 for normal or 3 for Extra :");
+        
+        System.out.println("You can add up to 6 fruits !");
         
         //a vraiable to choose fruits
         int pickItem;

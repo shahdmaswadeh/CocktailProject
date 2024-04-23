@@ -14,6 +14,11 @@ public class Cocktail {
     private double calories;
     private double volume;
 
+    public Cocktail()
+    {
+        
+    }
+    
     public Cocktail(Color color, double calories, double volume) {
         this.color = color;
         this.calories = calories;

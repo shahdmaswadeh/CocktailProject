@@ -15,13 +15,30 @@ public abstract class Container {
     private double cocktailVolume;
     private Cocktail cocktail;
 
+    public Container(double capacity, String name, double cocktailVolume, Cocktail cocktail) {
+        this.capacity = capacity;
+        this.name = name;
+        this.cocktailVolume = cocktailVolume;
+        this.cocktail = cocktail;
+    }
+    
+    public Container()
+    {
+        
+    }
+    
+    
+
     public double getCapacity() {
         return capacity;
     }
 
     
     
-    public  abstract double getTotalCalories();
+    public  double getTotalCalories()
+    {
+        return cocktail.getCalories();
+    }
     
     public double getTotalVolume()
     {
@@ -51,6 +68,18 @@ public abstract class Container {
 
     public void setCocktailVolume(double cocktailVolume) {
         this.cocktailVolume = cocktailVolume;
+    }
+
+    public Cocktail getCocktail() {
+        return cocktail;
+    }
+
+    public void setCapacity(double capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setCocktail(Cocktail cocktail) {
+        this.cocktail = cocktail;
     }
     
     

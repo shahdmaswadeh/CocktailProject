@@ -19,21 +19,29 @@ import ingredients.Color;
 public class Blender extends Container{
    
     boolean blended;
-     private Cocktail cocktail;
+    
     ArrayList<Ingredient>ingredientList=new ArrayList();
     
     
 //constructor 
-    public Blender() {
-        //wa have a Blender capacity of 2 liters which equals to 2000 milliliters
-        super.setCapacity(2000);
-        blended=false;
-       
+    
+    public Blender()
+    {
         
         
     }
-
+    
+    public Blender(boolean blended, Cocktail cocktail, double capacity, String name, double cocktailVolume) {
+        super(2000, "Blender", 0, new Cocktail());
+        this.blended = blended;
+        
+    }
+    
+   
+    
 //setter and getters
+
+   
     
 
     
@@ -63,7 +71,7 @@ public class Blender extends Container{
     {
         blended=true;
         //before that we calculate the resulting color ,volume and calories 
-        cocktail=new Cocktail(new Color(1,1,1),123,123);
+        super.setCocktail(new Cocktail(new Color(1,1,1),123,123));
         //here we intialize a new cocktail object 
         
     }

@@ -18,10 +18,7 @@ public abstract class Fruits extends ColoredIngredient {
     public Fruits( Color color, double volume, String name, double calories , int amount) {
         super(color, volume, name, calories);
        
-//        Sizes=new double[3];
-//        Sizes[0]=50;
-//        Sizes[1]=100;
-//        Sizes[2]=150;
+
         
     }
     

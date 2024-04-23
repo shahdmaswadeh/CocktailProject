@@ -12,7 +12,12 @@ public class LargeCup extends Cup{
     
     private static double price=15;
 
-    public LargeCup() {
+    public LargeCup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
+        super(price, numberOfCups, capacity, name, cocktailVolume, cocktail);
     }
+
+   
+
+   
     
 }
