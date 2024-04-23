@@ -10,4 +10,11 @@ package containers;
  */
 public class SmallCup extends Cup{
       private double price=5;
+
+    public SmallCup() {
+       
+    }
+    
+      
+      
 }

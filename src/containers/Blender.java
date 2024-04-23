@@ -17,7 +17,7 @@ import ingredients.Color;
  * @author عسثق
  */
 public class Blender extends Container{
-    private double capacity;
+   
     boolean blended;
      private Cocktail cocktail;
     ArrayList<Ingredient>ingredientList=new ArrayList();
@@ -26,7 +26,7 @@ public class Blender extends Container{
 //constructor 
     public Blender() {
         //wa have a Blender capacity of 2 liters which equals to 2000 milliliters
-        this.capacity = 2000;
+        super.setCapacity(2000);
         blended=false;
        
         
@@ -34,13 +34,9 @@ public class Blender extends Container{
     }
 
 //setter and getters
-    public double getCapacity() {
-        return capacity;
-    }
+    
 
-    public void setCapacity(double capacity) {
-        this.capacity = capacity;
-    }
+    
 
     public ArrayList<Ingredient> getIngredientList() {
         return ingredientList;

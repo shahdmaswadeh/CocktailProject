@@ -12,8 +12,8 @@ import ingredients.Color;
  *
  * @author عسثق
  */
-public abstract class Cup {
-    private char capacity ;
+public abstract class Cup extends Container {
+    
     //sizes are : small (250 ml) , medium (350 ml) , large (450 ml);
     
     

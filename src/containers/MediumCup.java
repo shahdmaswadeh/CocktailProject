@@ -10,4 +10,9 @@ package containers;
  */
 public class MediumCup extends Cup{
       private double price=10;
+
+    public MediumCup() {
+    }
+      
+      
 }
