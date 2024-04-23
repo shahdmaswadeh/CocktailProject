@@ -128,10 +128,7 @@ public class CocktailProject {
              
              //add ingradient 
              
-              System.out.println("How many cubes of Ice you want to add?");
-             pickItem=input.nextInt();
              
-             //add ingredient
              
              System.out.println("What toppings you would like to add ?");
              System.out.println("""
