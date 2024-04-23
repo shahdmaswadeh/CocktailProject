@@ -1,0 +1,239 @@
+@startuml
+
+package "ingredients" {
+    abstract class Ingredient {
+      - name: String 
+      - calories: double
+      + getName(): String
+    + getCalories(): double
+  +getInfo():String
+      +addToBlender():void
+
+    }
+
+   abstract class "ColoredIngredient"
+{
+- color: Color
+- volume : double
++getColor():Color
++getvolume():double 
++ getInfo():String
+
+
+}
+
+    class Color {
+      - R:int
+      - G:int
+      - B:int
+      + Color(R:int,G:int,B:int)
+      +setColor (R:int,G:int,B:int)
+      +getColor():Color
+
+
+    }
+    
+    
+    
+    class Sugar {
+    - numberOfCubes:int;
+    +Sugar(numberOfCubes:int,name:String,calories:double)
++ getInfo():String
++ setNumberOfCubes(number:int):void
++getNumberOfCubes():int
+      
+    }
+    }
+    
+
+    Ingredient <|-- ColoredIngredient
+    ColoredIngredient o-- Color
+    Ingredient <|-- Sugar
+    
+    
+
+package "toppings"{
+abstract class Toppings 
+{
++getInfo():String
+
+} 
+Ingredient <|-- Toppings
+class Caramal
+{
+}
+class Cherry 
+{
+}
+class ChocolateSause
+{
+}
+class CoconutFlakes
+{
+}
+class Sprinkles
+{
+}
+class WhippedCream
+{
+}
+Toppings <|-- Caramal
+Toppings <|-- Cherry
+Toppings <|-- ChocolateSause
+Toppings <|-- CoconutFlakes
+Toppings <|-- Sprinkles
+Toppings <|-- WhippedCream
+
+}
+package "liquids"
+{
+abstract class Liquid 
+{
++getInfo():String
+}
+ColoredIngredient <|-- Liquid
+
+abstract class Milk {
+}
+Liquid <|-- Milk 
+
+abstract class Juice {
+}
+Liquid <|-- Juice 
+
+class DairyMilk{
+}
+class AlmondMilk{
+}
+class OatMilk{
+}
+Milk <|-- DairyMilk
+Milk <|-- AlmondMilk
+Milk <|-- OatMilk
+
+class LemonJuice{
+}
+class OrangeJuice{
+}
+Juice <|-- LemonJuice
+Juice <|-- OrangeJuice
+
+
+
+
+}
+
+package "containers"
+{
+abstract class Container{
+-name:String
+-capacity:Double
+-cocktailVolume:double 
++getCapacity():double 
++getTotalCalories():double 
++getTotalVolume():double 
++getCocktailColor():Color
++getInfo():String
+}
+abstract class Cup{
++getInfo():String
+}
+Container <|-- Cup
+
+class Blender {
+-blended:boolean
+-cocktail:Cocktail
+-ingredientList:Ingredient[]
++blend():void
++addIngredient(ingredient:Ingredient):void
++pour(cup:Cup):void
++getInfo():String
+}
+Container <|-- Blender
+
+class LargeCup{
+{static}-price:double
++LargeCup()
+{static}+getPrice():double
+}
+class MediumCup{
+{static}-price:double
++MediumCup()
+{static}+getPrice():double
+}
+
+class SmallCup{
+{static}-price:double
++SmallCup()
+{static}+getPrice():double
+}
+Cup <|-- LargeCup
+Cup <|-- MediumCup
+Cup <|-- SmallCup
+
+class Cocktail{
+-color:Color
+-calories :double 
+-volume:double
++Cocktail(color:Color, calories:double,volume:double)
+}
+Blender o-- Cocktail
+Blender o-- Ingredient
+
+}
+
+package "fruits
+{
+abstract class Fruit {
++Fruit(color:Color,volume:double,name:String,calories:double,amount:int)
+
+}
+ColoredIngredient <|-- Fruit
+
+class Apple{
+}
+class Banana{
+}
+class Blueberry{
+}
+class Dates{
+}
+class Grapefruits{
+}
+class Mango {
+}
+class Orange{
+}
+class Pineapple{
+}
+class Roseberry{
+}
+class Strawberry{
+}
+class Watermelon{
+}
+Fruit <|-- Apple
+Fruit <|-- Banana
+Fruit <|-- Blueberry
+Fruit <|-- Dates
+Fruit <|-- Grapefruits
+Fruit <|-- Mango
+Fruit <|-- Orange
+Fruit <|-- Pineapple
+Fruit <|-- Roseberry
+Fruit <|-- Strawberry
+Fruit <|-- Watermelon
+
+}
+
+package "historylog"
+{
+interface Logger
+{
++logger();
+}
+}
+
+
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+abstract class ingredients.ColoredIngredient
+abstract class ingredients.Ingredient
+annotation java.lang.Override
+class containers.Blender
+class ingredients.Color
+class ingredients.Ice
+class ingredients.Sugar
+class ingredients.Toppings
+ingredients.ColoredIngredient --|> ingredients.Ingredient
+ingredients.ColoredIngredient ..> java.lang.Override
+ingredients.Ingredient ..> containers.Blender
+ingredients.Ice --|> ingredients.Ingredient
+ingredients.Ice ..> java.lang.Override
+ingredients.Sugar --|> ingredients.Ingredient
+ingredients.Sugar ..> java.lang.Override
+ingredients.Toppings --|> ingredients.Ingredient
+@enduml
