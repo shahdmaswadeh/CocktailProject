@@ -9,12 +9,17 @@ package containers;
  * @author عسثق
  */
 public class SmallCup extends Cup{
-      private double price=5;
+      
 
-    public SmallCup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
-        super(price, numberOfCups, capacity, name, cocktailVolume, cocktail);
+    public SmallCup(double numberOfCups ) {
+        super( numberOfCups*5, 250, "Small cup", new Cocktail(),numberOfCups);
     }
-
+     
+     public static double getCupCapacity()
+    {
+        return 250;
+    }
+   
     
       
 }

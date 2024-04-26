@@ -12,46 +12,27 @@ import ingredients.Color;
 public abstract class Container {
     private double capacity;
     private String name;
-    private double cocktailVolume;
     private Cocktail cocktail;
 
-    public Container(double capacity, String name, double cocktailVolume, Cocktail cocktail) {
+    public Container(double capacity, String name, Cocktail cocktail) {
         this.capacity = capacity;
         this.name = name;
-        this.cocktailVolume = cocktailVolume;
         this.cocktail = cocktail;
     }
+
+   
     
     public Container()
     {
         
     }
-    
-    
 
     public double getCapacity() {
         return capacity;
     }
 
-    
-    
-    public  double getTotalCalories()
-    {
-        return cocktail.getCalories();
-    }
-    
-    public double getTotalVolume()
-    {
-         //umimplemented yet 
-        
-        return cocktailVolume;
-    }
-    
-    public Color getCocktailColor()
-    {
-        //umimplemented yet
-        Color c =new Color(1,1,1);
-        return c;
+    public void setCapacity(double capacity) {
+        this.capacity = capacity;
     }
 
     public String getName() {
@@ -62,27 +43,34 @@ public abstract class Container {
         this.name = name;
     }
 
+    public Color getCocktailColor() {
+        return cocktail.getColor();
+    }
+    
+    public double getCocktailCalories() {
+        return cocktail.getCalories();
+    }
+    
     public double getCocktailVolume() {
-        return cocktailVolume;
+        return cocktail.getVolume();
     }
+    
+   
 
-    public void setCocktailVolume(double cocktailVolume) {
-        this.cocktailVolume = cocktailVolume;
+    public void setCocktailVolume(double volume) {
+        this.cocktail.setVolume(volume);
     }
-
-    public Cocktail getCocktail() {
-        return cocktail;
+    
+     public void setCocktailCalories(double calories) {
+        this.cocktail.setCalories(calories);
     }
-
-    public void setCapacity(double capacity) {
-        this.capacity = capacity;
-    }
-
-    public void setCocktail(Cocktail cocktail) {
-        this.cocktail = cocktail;
+     
+      public void setCocktailColor(Color color) {
+        this.cocktail.setColor(color);
     }
     
     
+
     
     
     

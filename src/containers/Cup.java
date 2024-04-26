@@ -14,27 +14,52 @@ import ingredients.Color;
  */
 public abstract class Cup extends Container {
     
-    private double price ;
-    private int numberOfCups;
+   
+    private double numberOfCups;
+    private double price;
     
     //sizes are : small (250 ml) , medium (350 ml) , large (450 ml);
 
-    public Cup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
-        super(capacity, name, cocktailVolume, cocktail);
+    public Cup( double price, double capacity, String name, Cocktail cocktail,double numberOfCups) {
+        super(capacity, name, cocktail);
+        this.numberOfCups=numberOfCups;
+       
         this.price = price;
+    }
+
+   
+
+    
+
+   
+
+    public double getNumberOfCups() {
+        return numberOfCups;
+    }
+
+    public void setNumberOfCups(double numberOfCups) {
         this.numberOfCups = numberOfCups;
     }
 
-    
+    public double getPrice() {
+        return price;
+    }
 
-  
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    
+    @Override
+    public String getInfo()
+    {
+        return super.getInfo()+"\nPrice: "+price;
+    }
     
     
     
     
     
-
-    
+   
     
     
 }

@@ -9,12 +9,22 @@ package containers;
  * @author عسثق
  */
 public class LargeCup extends Cup{
-    
-    private static double price=15;
 
-    public LargeCup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
-        super(price, numberOfCups, capacity, name, cocktailVolume, cocktail);
+    public LargeCup(double numberOfCups ) {
+        super( numberOfCups*15, 450, "Large cup", new Cocktail(),numberOfCups);
     }
+    
+    public static double getCupCapacity()
+    {
+        return 450;
+    }
+
+   
+    
+
+    
+
+    
 
    
 

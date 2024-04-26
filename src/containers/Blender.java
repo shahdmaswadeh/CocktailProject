@@ -6,9 +6,11 @@ package containers;
 
 import containers.Cocktail;
 import java.util.ArrayList;
+import liquids.*;
+import exceptions.BlenderIsEmptyException;
 
 import ingredients.*;
-import ingredients.Color;
+
 
 
 
@@ -21,22 +23,20 @@ public class Blender extends Container{
     boolean blended;
     
     ArrayList<Ingredient>ingredientList=new ArrayList();
-    
+    ArrayList<ColoredIngredient>coloredIngredientList=new ArrayList();
     
 //constructor 
     
-    public Blender()
-    {
-        
-        
-    }
+    //the capacity is always 2000 ml 
     
-    public Blender(boolean blended, Cocktail cocktail, double capacity, String name, double cocktailVolume) {
-        super(2000, "Blender", 0, new Cocktail());
-        this.blended = blended;
-        
-    }
     
+    public Blender() {
+        super(2000, "Blender", new Cocktail());
+        this.blended = false;
+    }
+
+   
+
    
     
 //setter and getters
@@ -50,60 +50,136 @@ public class Blender extends Container{
         return ingredientList;
     }
 
-    public void setIngredientList(ArrayList<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
-    }
+   
     
     
  //the rest methods    
     public void addIngredient(Ingredient ingredient)
     {
+        //for the ingredients without volume and color
         ingredientList.add(ingredient);
+         this.setCocktailCalories(getCocktailCalories()+ingredient.getCalories());
+            
     }
     
      public void addIngredient(ColoredIngredient ingredient)
     {
-        ingredientList.add(ingredient);
+        //for colored ingredients 
+        coloredIngredientList.add(ingredient);
+        this.setCocktailVolume(getCocktailVolume()+ingredient.getVolume());
+        this.setCocktailCalories(getCocktailCalories()+ingredient.getCalories());
     }
     
     
     public void blend()
     {
         blended=true;
-        //before that we calculate the resulting color ,volume and calories 
-        super.setCocktail(new Cocktail(new Color(1,1,1),123,123));
-        //here we intialize a new cocktail object 
         
+        double redSum=0,greenSum=0,blueSum=0;
+        
+        
+        
+        
+        for(ColoredIngredient c:coloredIngredientList)
+        {
+             
+             redSum+=c.getColor().getRed();
+             greenSum+=c.getColor().getGreen();
+             blueSum+=c.getColor().getBlue();    
+        }
+        double finalRed=redSum/coloredIngredientList.size();
+        double finalGreen=greenSum/coloredIngredientList.size();
+        double finalBlue=blueSum/coloredIngredientList.size();
+       
+        setCocktailColor(new Color(finalRed,finalGreen,finalBlue));
     }
     
-    public void pour(Cup cup)
+    public void pour(int size) throws BlenderIsEmptyException
     {
+        Cup cup;
+        double no;
+        if(size ==1 )
+        { no=SmallCup.getCupCapacity();
+           cup = new SmallCup(no);}
+         else if (size == 2)
+         {no=MediumCup.getCupCapacity();
+           cup = new MediumCup(no);}
+           else
+             {no=LargeCup.getCupCapacity();
+           cup = new LargeCup(no);}
+        
+        
+          if(isEmpty())
+          {
+             throw new BlenderIsEmptyException(); 
+          }
+           
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     
+    @Override
     public String getInfo()
     {
-        if(blended == false)
-          return "Capacity : "+this.getCapacity()+"Ingredients :"+ingredientList;
-        else 
-            return "Capacity : "+this.getCapacity()+"\nIngredients :"+ingredientList+"\nColor : "+getCocktailColor();
+      
+        { 
+//       info="Blender info :/nCapacity :"+getCapacity()+"\nIngredients :\n [";
+//       for(Ingredient i:ingredientList)
+//       {
+//           info+=i.getName()+" , ";
+//       }
+//       for(ColoredIngredient c:coloredIngredientList)
+//       {
+//           info+=c.getName()+" , ";
+//       }
+//       info+=" ]\nCalories :"+this.getCocktailCalories()+"\nVolume :"+this.getCocktailVolume();
+//       
+//       
+//       
+//       if(blended ==true)
+//           info+=getCocktailColor();
+        }
+String info="Ingredients: \nFruits: \n";
+
+        for (int i=0;i<ingredientList.size();++i)
+        {
+            if (ingredientList.get(i) instanceof Liquid)
+                info+="\nLiquids: \n";
+            else if (ingredientList.get(i) instanceof toppings.Toppings)
+            {        
+                info+="\nToppings: \n";
+                
+            }
+            else if (ingredientList.get(i) instanceof Sugar)
+                continue;
+           info+=ingredientList.get(i).getName()+"  ";
+        }
+       
+    if(blended ==true)
+         info+=getCocktailColor();
    
+   return info;
     }
 
-    @Override
-    public Color getCocktailColor() {
-        return new Color(1,1,1); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
-
-    @Override
-    public double getTotalVolume() {
-        return 5; //rated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
+   
+public boolean isEmpty()
+{
+    return this.getCocktailVolume()==0;
+}
     
     
-    public double getTotalCalories(){
-        return 6;
-    }
+    
+   
     
     
 

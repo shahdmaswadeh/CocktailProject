@@ -9,15 +9,15 @@ package ingredients;
  * @author عسثق
  */
 public class Color {
-    private int R,G,B;
+    private double R,G,B;
 
-    public Color(int R, int G, int B) {
+    public Color(double R, double G, double B) {
         this.R = R;
         this.G = G;
         this.B = B;
     }
 
-    public void setColor(int R, int G, int B)
+    public void setColor(double R, double G, double B)
     {
         this.R = R;
         this.G = G;
@@ -27,6 +27,19 @@ public class Color {
     public Color getColor()
     {
         return this;
+    }
+    
+    public double getRed()
+    {
+        return R;
+    } 
+    public double getGreen()
+    {
+        return G;
+    }
+    public double getBlue()
+    {
+        return B;
     }
     
 

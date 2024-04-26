@@ -5,6 +5,7 @@
 package cocktailproject;
 import java.util.Scanner;
 import containers.Blender;
+import ingredients.*;
 import fruits.*;
 /**
  *
@@ -24,7 +25,7 @@ public class CocktailProject {
         
          
         
-      
+       
         
         
         
@@ -32,7 +33,7 @@ public class CocktailProject {
         System.out.println("Welcome to our shop\nWe have the best Cocktails EVER!");
         System.out.println("What fruis do you want to add to your cocktail ?\n- Enter the number of the fruit then (1 for small amount 2 for normal or 3 for Extra :");
         
-        System.out.println("You can add up to 6 fruits !");
+        System.out.println("You can add up to 10 fruits !");
         
         //a vraiable to choose fruits
         int pickItem;
@@ -56,8 +57,7 @@ public class CocktailProject {
                       
                            """);
         
-        do{
-       
+        for(int i=0;i<10;++i){       
         
         
          pickItem=input.nextInt();
@@ -110,7 +110,7 @@ public class CocktailProject {
         }
             System.out.println(blender.getInfo());
         
-        }while(pickItem != 12);
+        }
         
         System.out.println("You want your cocktail with :");
         System.out.println("""

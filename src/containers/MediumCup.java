@@ -9,10 +9,15 @@ package containers;
  * @author عسثق
  */
 public class MediumCup extends Cup{
-      private double price=10;
+    
 
-    public MediumCup(double price, int numberOfCups, double capacity, String name, double cocktailVolume, Cocktail cocktail) {
-        super(price, numberOfCups, capacity, name, cocktailVolume, cocktail);
+     public MediumCup(double numberOfCups ) {
+        super( numberOfCups*10, 350, "Medium cup", new Cocktail(),numberOfCups);
+    }
+     
+     public static double getCupCapacity()
+    {
+        return 350;
     }
 
    

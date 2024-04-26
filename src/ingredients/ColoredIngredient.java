@@ -25,6 +25,8 @@ public abstract class ColoredIngredient extends Ingredient {
     public Color getColor() {
         return color;
     }
+    
+    
 
     
 
