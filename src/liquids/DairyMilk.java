@@ -12,7 +12,7 @@ import ingredients.Color;
  */
 public class DairyMilk extends Milk {
 
-    public DairyMilk(String name, double calories) {
+    public DairyMilk() {
         super("Dairy Milk", 150);
     }
 

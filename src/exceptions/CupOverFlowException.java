@@ -8,6 +8,15 @@ package exceptions;
  *
  * @author عسثق
  */
-public class CupOverFlowException {
+public class CupOverFlowException extends Exception {
+
+    @Override
+    public String getMessage() {
+        return "The cup has overflowed!";
+    }
+    
+    
+    
+    
     
 }

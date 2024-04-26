@@ -7,7 +7,7 @@ package containers;
 import containers.Cocktail;
 import java.util.ArrayList;
 import liquids.*;
-import exceptions.BlenderIsEmptyException;
+import exceptions.*;
 
 import ingredients.*;
 
@@ -20,10 +20,12 @@ import ingredients.*;
  */
 public class Blender extends Container{
    
-    boolean blended;
+    private boolean blended;
+    private int coloredIngredientCount=0;
+    
     
     ArrayList<Ingredient>ingredientList=new ArrayList();
-    ArrayList<ColoredIngredient>coloredIngredientList=new ArrayList();
+    //ArrayList<ColoredIngredient>coloredIngredientList=new ArrayList();
     
 //constructor 
     
@@ -54,21 +56,34 @@ public class Blender extends Container{
     
     
  //the rest methods    
-    public void addIngredient(Ingredient ingredient)
+    public void addIngredient(Ingredient ingredient) throws BlenderOverFlowException
     {
-        //for the ingredients without volume and color
-        ingredientList.add(ingredient);
-         this.setCocktailCalories(getCocktailCalories()+ingredient.getCalories());
+        if(ingredient instanceof ColoredIngredient)
+        {
+            if(this.getCapacity()-this.getCocktailVolume() < ((ColoredIngredient)ingredient).getVolume())
+                throw new BlenderOverFlowException();
+            else
+            {
+            ingredientList.add(ingredient);
+            coloredIngredientCount++;
+            this.setCocktailVolume(getCocktailVolume()+((ColoredIngredient)ingredient).getVolume());
+            
+            }
+                
+        }
+        else
+        {
+            ingredientList.add(ingredient);
+        }
+        
+       this.setCocktailCalories(getCocktailCalories()+ingredient.getCalories());
+        
+       
+       
             
     }
     
-     public void addIngredient(ColoredIngredient ingredient)
-    {
-        //for colored ingredients 
-        coloredIngredientList.add(ingredient);
-        this.setCocktailVolume(getCocktailVolume()+ingredient.getVolume());
-        this.setCocktailCalories(getCocktailCalories()+ingredient.getCalories());
-    }
+
     
     
     public void blend()
@@ -80,52 +95,78 @@ public class Blender extends Container{
         
         
         
-        for(ColoredIngredient c:coloredIngredientList)
+        for(Ingredient i: ingredientList)
         {
-             
-             redSum+=c.getColor().getRed();
-             greenSum+=c.getColor().getGreen();
-             blueSum+=c.getColor().getBlue();    
-        }
-        double finalRed=redSum/coloredIngredientList.size();
-        double finalGreen=greenSum/coloredIngredientList.size();
-        double finalBlue=blueSum/coloredIngredientList.size();
+             if(i instanceof ColoredIngredient)
+             {
+             redSum+=((ColoredIngredient)i).getColor().getRed();
+             greenSum+=((ColoredIngredient)i).getColor().getGreen();
+             blueSum+=((ColoredIngredient)i).getColor().getBlue(); 
+             double finalRed=redSum/coloredIngredientCount;
+             double finalGreen=greenSum/coloredIngredientCount;
+             double finalBlue=blueSum/coloredIngredientCount;
        
-        setCocktailColor(new Color(finalRed,finalGreen,finalBlue));
+             setCocktailColor(new Color(finalRed,finalGreen,finalBlue));
+             
+             }
+        }
+        
     }
     
-    public void pour(int size) throws BlenderIsEmptyException
+    
+    
+    public Cup pour(int size) throws Exception
     {
+        
         Cup cup;
         double no;
-        if(size ==1 )
-        { no=SmallCup.getCupCapacity();
-           cup = new SmallCup(no);}
-         else if (size == 2)
-         {no=MediumCup.getCupCapacity();
-           cup = new MediumCup(no);}
-           else
-             {no=LargeCup.getCupCapacity();
-           cup = new LargeCup(no);}
         
+        switch (size) {
+            case 1:
+                no=this.getCocktailVolume()/SmallCup.getCupCapacity();
+                cup = new SmallCup(no);
+                break;
+            case 2:
+                no=this.getCocktailVolume()/MediumCup.getCupCapacity();
+                cup = new MediumCup(no);
+                break;
+            default:
+                no=this.getCocktailVolume()/LargeCup.getCupCapacity();
+                cup = new LargeCup(no);
+                break;
+        }
         
+        //1- if the blender is empty it throws an exception
           if(isEmpty())
           {
-             throw new BlenderIsEmptyException(); 
+             throw new BlenderIsEmptyException();
+             
+          }
+          //if the cocktail volume is larger than the cup:
+          
+          else if(getCocktailVolume() > cup.getCapacity()){
+              //cocktail volume in cup = the cup's capacity
+              cup.setCocktailVolume(cup.getCapacity());
+              //calculate calories in the cocktail cup
+              cup.setCocktailCalories(cup.getCapacity()*(this.getCocktailCalories()/this.getCocktailVolume()));
+              //reduce the volume in the blender
+             this.setCocktailVolume(this.getCocktailVolume()-cup.getCapacity());
+              //throe an exception
+              throw new CupOverFlowException();
+              
+          }
+          //if the cocktail is smaller than the cup size 
+          else {
+              //the volume & calories in the cup are same in the blender 
+              cup.setCocktailVolume(this.getCocktailVolume());
+              cup.setCocktailCalories(this.getCocktailCalories());
+              //blender is now empty 
+              this.setCocktailVolume(0);
+              this.setCocktailCalories(0);
+              
           }
            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+      return cup;  
     }
     
     @Override

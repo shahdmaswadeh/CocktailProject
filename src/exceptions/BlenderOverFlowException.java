@@ -8,6 +8,12 @@ package exceptions;
  *
  * @author عسثق
  */
-public class BlenderOverFlowException {
+public class BlenderOverFlowException extends Exception {
+
+    @Override
+    public String getMessage() {
+        return "Blender has overflowed !";
+    }
+    
     
 }

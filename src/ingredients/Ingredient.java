@@ -4,6 +4,7 @@
  */
 package ingredients;
 import containers.Blender;
+import exceptions.*;
 
 /**
  *
@@ -35,9 +36,9 @@ public abstract class Ingredient {
     public void setCalories(double calories) {
         this.calories = calories;
     }
-    public void addToBlender(Blender b)
+    public void addToBlender(Blender b)throws BlenderOverFlowException
     {
-        
+    
         b.addIngredient(this);
     }
     

@@ -10,7 +10,7 @@ package liquids;
  */
 public class AlmondMilk extends Milk{
 
-    public AlmondMilk(String name, double calories) {
+    public AlmondMilk() {
         super("Almond Milk", 30);
     }
     

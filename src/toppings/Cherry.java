@@ -10,7 +10,7 @@ package toppings;
  */
 public class Cherry extends Toppings{
 
-    public Cherry(String name, double calories) {
+    public Cherry() {
         super("Charry", 5);
     }
     

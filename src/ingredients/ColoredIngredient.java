@@ -4,6 +4,9 @@
  */
 package ingredients;
 
+import containers.Blender;
+import exceptions.BlenderOverFlowException;
+
 /**
  *
  * @author عسثق
@@ -24,6 +27,15 @@ public abstract class ColoredIngredient extends Ingredient {
 
     public Color getColor() {
         return color;
+    }
+
+    @Override
+    public void addToBlender(Blender b) throws BlenderOverFlowException {
+        
+        if(this.volume> b.getCapacity()-b.getCocktailVolume())
+            throw new BlenderOverFlowException();
+        else
+            super.addToBlender(b); 
     }
     
     

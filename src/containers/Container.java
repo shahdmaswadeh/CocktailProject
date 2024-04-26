@@ -47,6 +47,11 @@ public abstract class Container {
         return cocktail.getColor();
     }
     
+    public String getColorString()
+    {
+        return "("+cocktail.getColor().getRed()+" , "+cocktail.getColor().getGreen()+" , "+cocktail.getColor().getBlue()+")" ;
+    }
+    
     public double getCocktailCalories() {
         return cocktail.getCalories();
     }

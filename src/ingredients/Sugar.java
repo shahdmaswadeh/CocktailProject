@@ -12,7 +12,7 @@ public class Sugar extends Ingredient {
 
     private int numberOfCubes;
 
-    public Sugar(int numberOfCubes, double calories) {
+    public Sugar(int numberOfCubes) {
         super("Sugar", numberOfCubes*20);
         //the calories in one sugar cube are almost 20 cal
         this.numberOfCubes = numberOfCubes;

@@ -10,7 +10,7 @@ package toppings;
  */
 public class ChocolateSause extends Toppings {
 
-    public ChocolateSause(String name, double calories) {
+    public ChocolateSause() {
         super("Chocolate sause", 50);
     }
     

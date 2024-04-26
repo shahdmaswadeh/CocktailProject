@@ -12,7 +12,7 @@ import ingredients.Color;
  */
 public class OrangeJuice extends Juice{
 
-    public OrangeJuice(Color color, String name, double calories) {
+    public OrangeJuice() {
         super(new Color(253,165,15), "Orange juice", 110);
     }
 
