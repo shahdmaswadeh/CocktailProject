@@ -217,12 +217,11 @@ public class CocktailProject {
         catch (BlenderOverFlowException ex)
         {
             ex.getMessage();
+            System.out.println(ex.getMessage());
         }
         
-        blender.blend();
-             
-        try{
-             System.out.println("Choose the cup size you want :");
+       
+         System.out.println("Choose the cup size you want :");
              System.out.println("""
                                 1-Small
                                 2-Medium
@@ -231,18 +230,49 @@ public class CocktailProject {
              
                pickItem=input.nextInt();
                
-            cup=blender.pour(pickItem);
-            totalPrice=cup.getPrice();
-            totalCalories=cup.getCocktailCalories();
+               double no;
+               switch (pickItem) {
+            case 1:
+                no=blender.getCocktailVolume()/SmallCup.getCupCapacity();
+                cup = new SmallCup(no);
+                break;
+            case 2:
+                no=blender.getCocktailVolume()/MediumCup.getCupCapacity();
+                cup = new MediumCup(no);
+                break;
+            default:
+                no=blender.getCocktailVolume()/LargeCup.getCupCapacity();
+                cup = new LargeCup(no);
+                break;
+        }    
+        try{
+            
+              blender.blend();
+               
+            cup=blender.pour(cup);
+            
+            
+            
+            
         }
         catch(CupOverFlowException ex1)
         {
-            ex1.getMessage();
+           
+            System.out.println(ex1.getMessage());
         }
         catch(BlenderIsEmptyException ex2)
         {
-            ex2.getMessage();
+           
+            System.out.println(ex2.getMessage());
         }
+        
+        System.out.println(cup.getPrice());
+            totalPrice=cup.getPrice();
+            System.out.println(cup.getCocktailCalories());
+            totalCalories=cup.getCocktailCalories();
+        
+        
+        System.out.println(blender.getInfo());
         
             
 
@@ -251,12 +281,22 @@ public class CocktailProject {
         System.out.println("That will be"+totalPrice+"\nCalories :"+totalCalories+"\nColor :"+blender.getColorString());
         
         
-        
+       System.out.print("Please rate our service (1-5 stars): ");
+                    int rating = input.nextInt();
+                    while (rating < 1 || rating > 5) 
+                        {
+                            System.out.print("Invalid input. Please enter a rating from 1 to 5 stars: ");
+                              rating = input.nextInt();
+                        }
+                      
+      System.out.println("Thank you for rating our sevice !");
         
         
         
         
  
-    }
     
+    
+}
+
 }

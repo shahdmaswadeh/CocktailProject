@@ -29,7 +29,10 @@ public abstract class Cup extends Container {
 
    
 
-    
+    public static double getCupCapacity()
+    {
+     return 0;   
+    }
 
    
 
@@ -48,6 +51,9 @@ public abstract class Cup extends Container {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    
+    
     
     @Override
     public String getInfo()

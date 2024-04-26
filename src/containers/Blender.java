@@ -86,8 +86,10 @@ public class Blender extends Container{
 
     
     
-    public void blend()
+    public void blend()throws BlenderIsEmptyException
     {
+        if(isEmpty())
+            throw new BlenderIsEmptyException();
         blended=true;
         
         double redSum=0,greenSum=0,blueSum=0;
@@ -115,26 +117,26 @@ public class Blender extends Container{
     
     
     
-    public Cup pour(int size) throws Exception
+    public Cup pour(Cup cup) throws Exception
     {
         
-        Cup cup;
-        double no;
         
-        switch (size) {
-            case 1:
-                no=this.getCocktailVolume()/SmallCup.getCupCapacity();
-                cup = new SmallCup(no);
-                break;
-            case 2:
-                no=this.getCocktailVolume()/MediumCup.getCupCapacity();
-                cup = new MediumCup(no);
-                break;
-            default:
-                no=this.getCocktailVolume()/LargeCup.getCupCapacity();
-                cup = new LargeCup(no);
-                break;
-        }
+       
+        
+//        switch (size) {
+//            case 1:
+//                no=this.getCocktailVolume()/SmallCup.getCupCapacity();
+//                cup = new SmallCup(no);
+//                break;
+//            case 2:
+//                no=this.getCocktailVolume()/MediumCup.getCupCapacity();
+//                cup = new MediumCup(no);
+//                break;
+//            default:
+//                no=this.getCocktailVolume()/LargeCup.getCupCapacity();
+//                cup = new LargeCup(no);
+//                break;
+//        }
         
         //1- if the blender is empty it throws an exception
           if(isEmpty())
@@ -150,7 +152,7 @@ public class Blender extends Container{
               //calculate calories in the cocktail cup
               cup.setCocktailCalories(cup.getCapacity()*(this.getCocktailCalories()/this.getCocktailVolume()));
               //reduce the volume in the blender
-             this.setCocktailVolume(this.getCocktailVolume()-cup.getCapacity());
+             this.setCocktailVolume(this.getCocktailVolume()- cup.getCapacity());
               //throe an exception
               throw new CupOverFlowException();
               
@@ -207,7 +209,7 @@ String info="Ingredients: \nFruits: \n";
         }
        
     if(blended ==true)
-         info+=getCocktailColor();
+         info+=this.getColorString();
    
    return info;
     }
@@ -217,6 +219,14 @@ public boolean isEmpty()
 {
     return this.getCocktailVolume()==0;
 }
+
+    @Override
+    public String getColorString() {
+        if(!isEmpty())
+           return super.getColorString(); 
+        else
+            return"No Color to display";
+    }
     
     
     
