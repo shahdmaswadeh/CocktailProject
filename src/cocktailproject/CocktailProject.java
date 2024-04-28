@@ -27,7 +27,7 @@ public class CocktailProject {
         Blender blender=new Blender();
         Cup cup;
         double totalPrice=0,totalCalories=0;
-        
+        int pickItem=0;
          
         
        
@@ -35,13 +35,135 @@ public class CocktailProject {
         
         
         //Welcome
-        System.out.println("Welcome to our shop\nWe have the best Cocktails EVER!");
+        System.out.println("Welcome to our shop \"Everything FruitFull !\"\nWe have the best Cocktails EVER!");
+        
+        
+        do{
+            
+            System.out.println("\n\nwhat kind of drink would you like to order?\n1.Order from Everything FruitFull menu. \n2. Make Your Signature Cocktail. ");
+        int menuCoice;
+        menuCoice=input.nextInt();
+        
+        switch(menuCoice)
+        {
+            
+            case 1:
+            {
+          int drinkChoice;
+        int cupSizeChoice;
+        String readyDrinksMenu = """
+                                 
+                                 
+                          Choose one of our special ready-made drinks:
+                          1. Strawberry Shake
+                          2. Mango Smoothie
+                          3. Fruitfull Drink (Our Special)
+                          4. Vanilla Shake
+                          5. Chocolate Shake
+                          6. Galactic Mix
+                          7. Wizard's Brew
+                          Enter your choice:
+                          """;
+        
+        String cupSizeMenu = """
+                             Select the cup size:
+                             1. Small
+                             2. Medium
+                             3. Large
+                             Enter your choice:
+                             """;
+
+        System.out.println(readyDrinksMenu);
+        drinkChoice = input.nextInt();
+
+        System.out.println(cupSizeMenu);
+        cupSizeChoice = input.nextInt();
+
+       
+        String color = "";
+        String name = "";
+
+        switch (drinkChoice) {
+            case 1:
+                name = "Strawberry Shake";
+                color = "255, 182, 193";
+                totalCalories = 200;
+                break;
+            case 2:
+                name = "Mango Smoothie";
+                color = "255, 215, 0";
+                totalCalories = 250;
+                break;
+            case 3:
+                name = "Fruitful Drink (Our Special)";
+                color = "255, 105, 180"; 
+               totalCalories = 320;
+                break;
+            case 4:
+                name = "Vanilla Shake";
+                color = "255, 253, 208";
+               totalCalories = 180;
+                break;
+            case 5:
+                name = "Chocolate Shake";
+                color = "210, 105, 30";
+                totalCalories = 300;
+                break;
+            case 6:
+                name = "Galactic Mix";
+                color = "44, 58, 71"; 
+               totalCalories = 290;
+                break;
+            case 7:
+                name = "Wizard's Brew";
+                color = "138, 43, 226";  
+               totalCalories = 260;
+                break;
+            default:
+                System.out.println("Invalid choice. Please select from the menu options.");
+                input.close();
+                break;
+        }
+        
+        
+          switch (cupSizeChoice) {
+            case 1: // Small
+                totalPrice = 5;
+                totalCalories *= 0.75;
+                break;
+            case 2: // Medium
+                totalPrice = 10;
+                totalCalories *= 1.0;
+                break;
+            case 3: // Large
+                totalPrice = 15;
+                totalCalories *= 1.25;
+                break;
+            default:
+                System.out.println("Invalid cup size selected.");
+                input.close();
+                return;
+        }
+//        
+//                System.out.println("Tnak you for visiting us !");
+//                System.out.println("\nThat will be : "+totalPrice+"\n");
+//                
+                System.out.println("You selected " + name + ".");
+        System.out.println("Color: " + color);
+        System.out.println("Calories: " + Math.round(totalCalories)); // Rounded to nearest whole number
+        System.out.println("Price: " + totalPrice);
+            
+         break;
+            }
+            
+            case 2:
+            {
         System.out.println("What fruis do you want to add to your cocktail ?\n- Enter the number of the fruit then (1 for small amount 2 for normal or 3 for Extra :");
         
         System.out.println("You can add up to 10 fruits !");
         
         //a vraiable to choose fruits
-        int pickItem;
+        
         int pickAmount;
         try{
         //Display the Fruits menu
@@ -272,12 +394,12 @@ public class CocktailProject {
             totalCalories=cup.getCocktailCalories();
         
         
-        System.out.println(blender.getInfo());
+        
         
             
 
        
-        System.out.println("Thank you for visiting us ! ");
+        System.out.println("\n\nThank you for visiting us ! ");
         System.out.println("That will be"+totalPrice+"\nCalories :"+totalCalories+"\nColor :"+blender.getColorString());
         
         
@@ -292,8 +414,13 @@ public class CocktailProject {
       System.out.println("Thank you for rating our sevice !");
         
         
+         
+            } }
+         System.out.println("\n\n Do you want to order another Cocktail? (1-Yes , 2-No)");
+         pickItem=input.nextInt();
+         
         
-        
+        }while(pickItem != 2);
  
     
     

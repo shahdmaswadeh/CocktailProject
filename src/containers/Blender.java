@@ -123,20 +123,7 @@ public class Blender extends Container{
         
        
         
-//        switch (size) {
-//            case 1:
-//                no=this.getCocktailVolume()/SmallCup.getCupCapacity();
-//                cup = new SmallCup(no);
-//                break;
-//            case 2:
-//                no=this.getCocktailVolume()/MediumCup.getCupCapacity();
-//                cup = new MediumCup(no);
-//                break;
-//            default:
-//                no=this.getCocktailVolume()/LargeCup.getCupCapacity();
-//                cup = new LargeCup(no);
-//                break;
-//        }
+
         
         //1- if the blender is empty it throws an exception
           if(isEmpty())
