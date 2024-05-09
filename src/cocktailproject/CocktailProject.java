@@ -31,6 +31,7 @@ public class CocktailProject {
          
         
        
+       
         
         
         
@@ -149,7 +150,7 @@ public class CocktailProject {
 //                System.out.println("\nThat will be : "+totalPrice+"\n");
 //                
                 System.out.println("You selected " + name + ".");
-        System.out.println("Color: " + color);
+        System.out.println("Color: (" + color+")");
         System.out.println("Calories: " + Math.round(totalCalories)); // Rounded to nearest whole number
         System.out.println("Price: " + totalPrice);
             
@@ -413,7 +414,7 @@ public class CocktailProject {
                       
       System.out.println("Thank you for rating our sevice !");
         
-        
+         
          
             } }
          System.out.println("\n\n Do you want to order another Cocktail? (1-Yes , 2-No)");
