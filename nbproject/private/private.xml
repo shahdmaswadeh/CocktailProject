@@ -3,14 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/assets/finalCColorful.png</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/diagram1.svg</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/ingredients/Color.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Apple.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/newpumlTemplate.puml</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/toppings/ChocolateSause.java</file>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/assets/0c9f5925-db39-424d-a20a-169a9c578cb2.png</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/containers/Cocktail.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/toppings/WhippedCream.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/DataBaseLogger.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/toppings/Sprinkles.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/Milk.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/OrangeJuice.java</file>
@@ -22,6 +23,7 @@
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Blueberry.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Grapefruits.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/Liquid.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/FileLogger.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/DairyMilk.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/containers/Container.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/ingredients/Sugar.java</file>
@@ -34,14 +36,16 @@
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Fruits.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/exceptions/CupOverFlowException.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/AlmondMilk.java</file>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/assets/pngegg.png</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Dates.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/OatMilk.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/ConsoleLogger.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/liquids/Juice.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/FinalUML.puml</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/cocktailproject/CocktailProject.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Strawberry.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/toppings/Caramel.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/assets/output-onlinepngtools.png</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/gui/MakeOwnCocktail.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/toppings/Toppings.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/containers/MediumCup.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/ingredients/ColoredIngredient.java</file>
@@ -52,7 +56,6 @@
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/exceptions/BlenderOverFlowException.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/fruits/Roseberry.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/Logger.java</file>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/assets/png-clipart-cocktail-glasses-cocktail-juice-margarita-drink-cartoon-cocktail-cartoon-character-food.png</file>
         </group>
     </open-files>
 </project-private>
