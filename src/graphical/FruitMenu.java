@@ -133,7 +133,6 @@ public class FruitMenu extends javax.swing.JFrame {
         jToggleButton10.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jToggleButton10.setForeground(new java.awt.Color(69, 66, 66));
         jToggleButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/mango.png"))); // NOI18N
-        jToggleButton10.setSelected(true);
         jToggleButton10.setText("Mango");
         jToggleButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
