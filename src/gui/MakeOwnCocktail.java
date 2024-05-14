@@ -4,6 +4,8 @@
  */
 package gui;
 
+import containers.Blender;
+
 /**
  *
  * @author عسثق
@@ -15,6 +17,11 @@ public class MakeOwnCocktail extends javax.swing.JFrame {
      */
     public MakeOwnCocktail() {
         initComponents();
+    }
+    
+    public MakeOwnCocktail(Blender blender)
+    {
+        System.out.println(blender.getInfo());
     }
 
     /**
@@ -406,8 +413,7 @@ public class MakeOwnCocktail extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton29)
-                        .addGap(42, 42, 42))
+                        .addComponent(jRadioButton29))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -501,22 +507,19 @@ public class MakeOwnCocktail extends javax.swing.JFrame {
                                         .addComponent(jLabel25)
                                         .addGap(18, 18, 18))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(38, 38, 38)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel18)
-                                                    .addComponent(jRadioButton6)
-                                                    .addComponent(jRadioButton7)
-                                                    .addComponent(jRadioButton8)
-                                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jRadioButton32)
-                                                    .addComponent(jRadioButton34)
-                                                    .addComponent(jRadioButton35))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                            .addComponent(jLabel18)
+                                            .addComponent(jRadioButton6)
+                                            .addComponent(jRadioButton7)
+                                            .addComponent(jRadioButton8)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jRadioButton32)
+                                            .addComponent(jRadioButton34)
+                                            .addComponent(jRadioButton35))))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,7 +528,6 @@ public class MakeOwnCocktail extends javax.swing.JFrame {
                                                 .addComponent(jLabel19)
                                                 .addGap(23, 23, 23))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jRadioButton10)
                                                     .addComponent(jRadioButton16)
@@ -564,12 +566,11 @@ public class MakeOwnCocktail extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jRadioButton25)
-                                .addGap(42, 42, 42))
+                                .addComponent(jRadioButton25))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
-                                .addComponent(jRadioButton28)
-                                .addGap(42, 42, 42)))))
+                                .addComponent(jRadioButton28)))))
+                .addGap(42, 42, 42)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );

@@ -41,12 +41,10 @@ public class CocktailProject {
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
 
-        try {
+       
             DataBaseLoggerTwo dbLogger = new DataBaseLoggerTwo();
             dbLogger.logDB("sssss");
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        
         System.out.println("Date : " + date + "\nTime : " + time);
 
         fLogger.log("\nStarted in : " + date + "  at : " + time);

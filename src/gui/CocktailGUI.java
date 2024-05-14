@@ -4,12 +4,20 @@
  */
 package gui;
 
+import containers.Blender;
+import exceptions.BlenderOverFlowException;
+import fruits.Banana;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author عسثق
  */
 public class CocktailGUI extends javax.swing.JFrame {
 
+    
+    private Blender blender;
     /**
      * Creates new form CocktailGUI
      */
@@ -133,11 +141,17 @@ public class CocktailGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        blender =new Blender();
+        try {
+            blender.addIngredient(new Banana(1));
+        } catch (BlenderOverFlowException ex) {
+            Logger.getLogger(CocktailGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MakeOwnCocktail moc=new MakeOwnCocktail();
+        MakeOwnCocktail moc=new MakeOwnCocktail(blender);
         moc.show();
         
         dispose();
