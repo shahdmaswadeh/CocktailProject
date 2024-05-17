@@ -234,7 +234,6 @@ public class FruitMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueButtonActionPerformed
-        LiquidsGUI liquid=new LiquidsGUI();
          
         if (AppleButton.isSelected()){
             try {
@@ -302,7 +301,7 @@ public class FruitMenu extends javax.swing.JFrame {
         }
         else if (RoseberryButton.isSelected()){
             try {
-                blender.addIngredient(new Roseberry(2));
+                blender.addIngredient(new Raspberry(2));
                 // blender.addIgredient(new Apple(2));
             } catch (BlenderOverFlowException ex) {
                 Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -324,7 +323,8 @@ public class FruitMenu extends javax.swing.JFrame {
                 Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+                
+        LiquidsGUI liquid=new LiquidsGUI(blender);
         liquid.show();
         dispose();
         

@@ -13,7 +13,7 @@ import java.awt.Color;
  * @author عسثق
  */
 public class ResultOwnDrink extends javax.swing.JFrame {
-
+    private Blender blender;
     /**
      * Creates new form ResultOwnDrink
      */
@@ -22,6 +22,7 @@ public class ResultOwnDrink extends javax.swing.JFrame {
     }
     public ResultOwnDrink(Blender blender,Cup cup) {
         initComponents();
+        this.blender=blender;
         OrderTA.setText(blender.getIngredientsString());
         CaloriesTF.setText(""+cup.getCocktailCalories());
         PriceTF.setText(""+cup.getPrice());

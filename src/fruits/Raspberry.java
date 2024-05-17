@@ -10,9 +10,9 @@ import ingredients.Color;
  *
  * @author عسثق
  */
-public class Roseberry extends Fruits{
+public class Raspberry extends Fruits{
 
-    public Roseberry(  int amount) {
+    public Raspberry(  int amount) {
         super(new Color(222, 121, 130), VOLUMES[amount-1], "Roseberry", amount*25, amount);
     }
 

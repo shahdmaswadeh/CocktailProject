@@ -4,19 +4,37 @@
  */
 package graphical;
 
+import containers.*;
+import exceptions.BlenderOverFlowException;
+import liquids.*;
+import ingredients.Sugar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import toppings.*;
+
 /**
  *
  * @author lenovo
  */
 public class LiquidsGUI extends javax.swing.JFrame {
-
+    private Blender blender;
+    private boolean liquidFlag=false,cupFlag=false;
     /**
      * Creates new form LiquidsGUI
      */
     public LiquidsGUI() {
+       
         initComponents();
     }
-
+    public LiquidsGUI(Blender blender)
+    {
+        initComponents();
+        this.blender=blender;
+        liquidFlag=false;
+        cupFlag=false;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,29 +45,35 @@ public class LiquidsGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        liquids = new javax.swing.ButtonGroup();
+        liquidsButtonGroup = new javax.swing.ButtonGroup();
+        cupsButtonGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        dairyMilkButton = new javax.swing.JButton();
-        lemonJuiceButton = new javax.swing.JButton();
-        almondMilkButton = new javax.swing.JButton();
-        oatMilkButton = new javax.swing.JButton();
-        orangeJuiceButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        whippedCreamButton = new javax.swing.JButton();
-        cherryButton = new javax.swing.JButton();
-        chocolateSauseButton = new javax.swing.JButton();
-        caramelButton = new javax.swing.JButton();
-        coconutFlakesButton = new javax.swing.JButton();
-        sprinklesButton = new javax.swing.JButton();
-        jSlider1 = new javax.swing.JSlider();
+        sugarjSlider = new javax.swing.JSlider();
         jLabel7 = new javax.swing.JLabel();
-        mediumCupButton = new javax.swing.JButton();
-        LargeCupButton = new javax.swing.JButton();
-        smallCupButton = new javax.swing.JButton();
+        dairyMilkToggleButton = new javax.swing.JToggleButton();
+        orangeJuiceToggleButton = new javax.swing.JToggleButton();
+        oatMilkToggleButton = new javax.swing.JToggleButton();
+        almondMilkToggleButton = new javax.swing.JToggleButton();
+        lemonJuiceToggleButton = new javax.swing.JToggleButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        sprinklesToggleButton = new javax.swing.JToggleButton();
+        coconutFlakesToggleButton = new javax.swing.JToggleButton();
+        caramelToggleButton = new javax.swing.JToggleButton();
+        chocolateSauseToggleButton = new javax.swing.JToggleButton();
+        whippedCreamToggleButton = new javax.swing.JToggleButton();
+        CherryToggleButton = new javax.swing.JToggleButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        finishButton = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        smallCupToggleButton = new javax.swing.JToggleButton();
+        mediumCupToggleButton = new javax.swing.JToggleButton();
+        largeCupToggleButton = new javax.swing.JToggleButton();
 
         jLabel1.setText("jLabel1");
 
@@ -69,66 +93,6 @@ public class LiquidsGUI extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(69, 66, 66));
         jLabel4.setText("Milk:");
 
-        dairyMilkButton.setBackground(new java.awt.Color(218, 192, 203));
-        dairyMilkButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        dairyMilkButton.setForeground(new java.awt.Color(69, 66, 66));
-        dairyMilkButton.setText("• Dairy Milk");
-        dairyMilkButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(dairyMilkButton);
-        dairyMilkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dairyMilkButtonActionPerformed(evt);
-            }
-        });
-
-        lemonJuiceButton.setBackground(new java.awt.Color(218, 192, 203));
-        lemonJuiceButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        lemonJuiceButton.setForeground(new java.awt.Color(69, 66, 66));
-        lemonJuiceButton.setText("• Lemon Milk");
-        lemonJuiceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(lemonJuiceButton);
-        lemonJuiceButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lemonJuiceButtonActionPerformed(evt);
-            }
-        });
-
-        almondMilkButton.setBackground(new java.awt.Color(218, 192, 203));
-        almondMilkButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        almondMilkButton.setForeground(new java.awt.Color(69, 66, 66));
-        almondMilkButton.setText("• Almond Milk");
-        almondMilkButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(almondMilkButton);
-        almondMilkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                almondMilkButtonActionPerformed(evt);
-            }
-        });
-
-        oatMilkButton.setBackground(new java.awt.Color(218, 192, 203));
-        oatMilkButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        oatMilkButton.setForeground(new java.awt.Color(69, 66, 66));
-        oatMilkButton.setText("• Oat Milk");
-        oatMilkButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(oatMilkButton);
-        oatMilkButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oatMilkButtonActionPerformed(evt);
-            }
-        });
-
-        orangeJuiceButton.setBackground(new java.awt.Color(218, 192, 203));
-        orangeJuiceButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        orangeJuiceButton.setForeground(new java.awt.Color(69, 66, 66));
-        orangeJuiceButton.setText("• Orange Juice");
-        orangeJuiceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(orangeJuiceButton);
-        orangeJuiceButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orangeJuiceButtonActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Script MT Bold", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(236, 80, 148));
         jLabel5.setText("Sugar");
@@ -137,93 +101,26 @@ public class LiquidsGUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(236, 80, 148));
         jLabel6.setText("Toppings");
 
-        whippedCreamButton.setBackground(new java.awt.Color(218, 192, 203));
-        whippedCreamButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        whippedCreamButton.setForeground(new java.awt.Color(69, 66, 66));
-        whippedCreamButton.setText("• Whipped Cream");
-        whippedCreamButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        whippedCreamButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                whippedCreamButtonActionPerformed(evt);
-            }
-        });
-
-        cherryButton.setBackground(new java.awt.Color(218, 192, 203));
-        cherryButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        cherryButton.setForeground(new java.awt.Color(69, 66, 66));
-        cherryButton.setText("• Cherry");
-        cherryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        cherryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cherryButtonActionPerformed(evt);
-            }
-        });
-
-        chocolateSauseButton.setBackground(new java.awt.Color(218, 192, 203));
-        chocolateSauseButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        chocolateSauseButton.setForeground(new java.awt.Color(69, 66, 66));
-        chocolateSauseButton.setText("• Chocolate Sauce");
-        chocolateSauseButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        chocolateSauseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chocolateSauseButtonActionPerformed(evt);
-            }
-        });
-
-        caramelButton.setBackground(new java.awt.Color(218, 192, 203));
-        caramelButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        caramelButton.setForeground(new java.awt.Color(69, 66, 66));
-        caramelButton.setText("• Caramel");
-        caramelButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        caramelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caramelButtonActionPerformed(evt);
-            }
-        });
-
-        coconutFlakesButton.setBackground(new java.awt.Color(218, 192, 203));
-        coconutFlakesButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        coconutFlakesButton.setForeground(new java.awt.Color(69, 66, 66));
-        coconutFlakesButton.setText("• Coconut Flakes");
-        coconutFlakesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        coconutFlakesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                coconutFlakesButtonActionPerformed(evt);
-            }
-        });
-
-        sprinklesButton.setBackground(new java.awt.Color(218, 192, 203));
-        sprinklesButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        sprinklesButton.setForeground(new java.awt.Color(69, 66, 66));
-        sprinklesButton.setText("• Sprinkles");
-        sprinklesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        sprinklesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sprinklesButtonActionPerformed(evt);
-            }
-        });
-
-        jSlider1.setMajorTickSpacing(1);
-        jSlider1.setMaximum(10);
-        jSlider1.setMinimum(1);
-        jSlider1.setMinorTickSpacing(1);
-        jSlider1.setPaintLabels(true);
-        jSlider1.setPaintTicks(true);
-        jSlider1.setToolTipText("");
-        jSlider1.setValue(1);
-        jSlider1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jSlider1.addAncestorListener(new javax.swing.event.AncestorListener() {
+        sugarjSlider.setMajorTickSpacing(1);
+        sugarjSlider.setMaximum(10);
+        sugarjSlider.setMinorTickSpacing(1);
+        sugarjSlider.setPaintLabels(true);
+        sugarjSlider.setPaintTicks(true);
+        sugarjSlider.setToolTipText("");
+        sugarjSlider.setValue(0);
+        sugarjSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        sugarjSlider.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jSlider1AncestorAdded(evt);
+                sugarjSliderAncestorAdded(evt);
             }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        jSlider1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        sugarjSlider.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jSlider1MouseDragged(evt);
+                sugarjSliderMouseDragged(evt);
             }
         });
 
@@ -231,39 +128,176 @@ public class LiquidsGUI extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(236, 80, 148));
         jLabel7.setText("Cup Size:");
 
-        mediumCupButton.setBackground(new java.awt.Color(218, 192, 203));
-        mediumCupButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        mediumCupButton.setForeground(new java.awt.Color(69, 66, 66));
-        mediumCupButton.setText("• Medium Cup");
-        mediumCupButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(mediumCupButton);
-        mediumCupButton.addActionListener(new java.awt.event.ActionListener() {
+        dairyMilkToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        liquidsButtonGroup.add(dairyMilkToggleButton);
+        dairyMilkToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        dairyMilkToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        dairyMilkToggleButton.setText("Dairy Milk");
+        dairyMilkToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        dairyMilkToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mediumCupButtonActionPerformed(evt);
+                dairyMilkToggleButtonActionPerformed(evt);
             }
         });
 
-        LargeCupButton.setBackground(new java.awt.Color(218, 192, 203));
-        LargeCupButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        LargeCupButton.setForeground(new java.awt.Color(69, 66, 66));
-        LargeCupButton.setText("• Large Cup");
-        LargeCupButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(LargeCupButton);
-        LargeCupButton.addActionListener(new java.awt.event.ActionListener() {
+        orangeJuiceToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        liquidsButtonGroup.add(orangeJuiceToggleButton);
+        orangeJuiceToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        orangeJuiceToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        orangeJuiceToggleButton.setText("Orange Juice");
+        orangeJuiceToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        orangeJuiceToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LargeCupButtonActionPerformed(evt);
+                orangeJuiceToggleButtonActionPerformed(evt);
             }
         });
 
-        smallCupButton.setBackground(new java.awt.Color(218, 192, 203));
-        smallCupButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        smallCupButton.setForeground(new java.awt.Color(69, 66, 66));
-        smallCupButton.setText("• Small Cup");
-        smallCupButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        liquids.add(smallCupButton);
-        smallCupButton.addActionListener(new java.awt.event.ActionListener() {
+        oatMilkToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        liquidsButtonGroup.add(oatMilkToggleButton);
+        oatMilkToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        oatMilkToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        oatMilkToggleButton.setText("Oat Milk");
+        oatMilkToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        oatMilkToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                smallCupButtonActionPerformed(evt);
+                oatMilkToggleButtonActionPerformed(evt);
+            }
+        });
+
+        almondMilkToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        liquidsButtonGroup.add(almondMilkToggleButton);
+        almondMilkToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        almondMilkToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        almondMilkToggleButton.setText("Almond Milk");
+        almondMilkToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        almondMilkToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                almondMilkToggleButtonActionPerformed(evt);
+            }
+        });
+
+        lemonJuiceToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        liquidsButtonGroup.add(lemonJuiceToggleButton);
+        lemonJuiceToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        lemonJuiceToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        lemonJuiceToggleButton.setText("Lemon Juice");
+        lemonJuiceToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lemonJuiceToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lemonJuiceToggleButtonActionPerformed(evt);
+            }
+        });
+
+        sprinklesToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        sprinklesToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        sprinklesToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        sprinklesToggleButton.setText("Sprinkles");
+        sprinklesToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        sprinklesToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sprinklesToggleButtonActionPerformed(evt);
+            }
+        });
+
+        coconutFlakesToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        coconutFlakesToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        coconutFlakesToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        coconutFlakesToggleButton.setText("Coconut Flakes");
+        coconutFlakesToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        coconutFlakesToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                coconutFlakesToggleButtonActionPerformed(evt);
+            }
+        });
+
+        caramelToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        caramelToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        caramelToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        caramelToggleButton.setText("Caramel");
+        caramelToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        caramelToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caramelToggleButtonActionPerformed(evt);
+            }
+        });
+
+        chocolateSauseToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        chocolateSauseToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        chocolateSauseToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        chocolateSauseToggleButton.setText("Chocolate Sause");
+        chocolateSauseToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        chocolateSauseToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chocolateSauseToggleButtonActionPerformed(evt);
+            }
+        });
+
+        whippedCreamToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        whippedCreamToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        whippedCreamToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        whippedCreamToggleButton.setText("Whipped Cream");
+        whippedCreamToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        whippedCreamToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                whippedCreamToggleButtonActionPerformed(evt);
+            }
+        });
+
+        CherryToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        CherryToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        CherryToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        CherryToggleButton.setText("Cherry");
+        CherryToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CherryToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CherryToggleButtonActionPerformed(evt);
+            }
+        });
+
+        finishButton.setBackground(new java.awt.Color(236, 80, 148));
+        finishButton.setFont(new java.awt.Font("Script MT Bold", 1, 36)); // NOI18N
+        finishButton.setForeground(new java.awt.Color(218, 192, 203));
+        finishButton.setText("Finish");
+        finishButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(236, 80, 148), 5, true));
+        finishButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finishButtonActionPerformed(evt);
+            }
+        });
+
+        smallCupToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        cupsButtonGroup.add(smallCupToggleButton);
+        smallCupToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        smallCupToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        smallCupToggleButton.setText("Small Cup");
+        smallCupToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        smallCupToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                smallCupToggleButtonActionPerformed(evt);
+            }
+        });
+
+        mediumCupToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        cupsButtonGroup.add(mediumCupToggleButton);
+        mediumCupToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        mediumCupToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        mediumCupToggleButton.setText("Medium Cup");
+        mediumCupToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mediumCupToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediumCupToggleButtonActionPerformed(evt);
+            }
+        });
+
+        largeCupToggleButton.setBackground(new java.awt.Color(218, 192, 203));
+        cupsButtonGroup.add(largeCupToggleButton);
+        largeCupToggleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        largeCupToggleButton.setForeground(new java.awt.Color(59, 54, 54));
+        largeCupToggleButton.setText("Large Cup");
+        largeCupToggleButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        largeCupToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                largeCupToggleButtonActionPerformed(evt);
             }
         });
 
@@ -271,112 +305,136 @@ public class LiquidsGUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(almondMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dairyMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(oatMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(73, 73, 73)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lemonJuiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orangeJuiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(131, 131, 131))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(206, 206, 206)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(172, 172, 172)
+                                .addComponent(finishButton, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator4)
+                        .addComponent(jSeparator3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(212, 212, 212)
+                        .addComponent(jLabel7)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sugarjSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(194, 194, 194)
-                                .addComponent(jLabel6))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dairyMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(whippedCreamButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cherryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(chocolateSauseButton, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                            .addComponent(caramelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addComponent(jLabel7))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(coconutFlakesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sprinklesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(oatMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(almondMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(134, 134, 134)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lemonJuiceToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(orangeJuiceToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(smallCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mediumCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(LargeCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(jLabel2)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(coconutFlakesToggleButton)
+                                    .addComponent(sprinklesToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(9, 9, 9))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(smallCupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(16, 16, 16)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(chocolateSauseToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(caramelToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CherryToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(whippedCreamToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(mediumCupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(largeCupToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(orangeJuiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(dairyMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lemonJuiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(oatMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(almondMilkToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(dairyMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(almondMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(lemonJuiceToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(oatMilkButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(orangeJuiceToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sugarjSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sprinklesToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chocolateSauseToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(whippedCreamToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(coconutFlakesToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caramelToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CherryToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(smallCupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(largeCupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mediumCupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(whippedCreamButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chocolateSauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(coconutFlakesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caramelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sprinklesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cherryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(smallCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mediumCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LargeCupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addComponent(finishButton)
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -395,69 +453,194 @@ public class LiquidsGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dairyMilkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dairyMilkButtonActionPerformed
+    private void whippedCreamToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whippedCreamToggleButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dairyMilkButtonActionPerformed
+    }//GEN-LAST:event_whippedCreamToggleButtonActionPerformed
 
-    private void lemonJuiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonJuiceButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lemonJuiceButtonActionPerformed
+    private void lemonJuiceToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lemonJuiceToggleButtonActionPerformed
 
-    private void almondMilkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_almondMilkButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_almondMilkButtonActionPerformed
+        liquidFlag=true;
+// TODO add your handling code here:
+    }//GEN-LAST:event_lemonJuiceToggleButtonActionPerformed
 
-    private void oatMilkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oatMilkButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oatMilkButtonActionPerformed
+    private void sugarjSliderMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sugarjSliderMouseDragged
+ cupFlag=true;
+       finishButton.setEnabled(cupFlag);        
+// TODO add your handling code here:
+    }//GEN-LAST:event_sugarjSliderMouseDragged
 
-    private void orangeJuiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeJuiceButtonActionPerformed
+    private void sugarjSliderAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_sugarjSliderAncestorAdded
+         cupFlag=true;
+        finishButton.setEnabled(cupFlag);
         // TODO add your handling code here:
-    }//GEN-LAST:event_orangeJuiceButtonActionPerformed
+    }//GEN-LAST:event_sugarjSliderAncestorAdded
 
-    private void whippedCreamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_whippedCreamButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_whippedCreamButtonActionPerformed
+    private void finishButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishButtonActionPerformed
+        int sugar;
+        blender=new Blender();
+            if (!liquidFlag)
+                JOptionPane.showMessageDialog(this,"You must choose atleast one of the liquids","Warning",JOptionPane.ERROR_MESSAGE);
+            
+           if (!cupFlag) 
+            JOptionPane.showMessageDialog(this, "You must choose a Cup Size","Warning",JOptionPane.ERROR_MESSAGE);
+        
+     
+        
+        
+        try{
+            if (dairyMilkToggleButton.isSelected())
+                blender.addIngredient(new DairyMilk());
+            
+            else if (oatMilkToggleButton.isSelected())
+                blender.addIngredient(new OatMilk());
+            
+            else if (orangeJuiceToggleButton.isSelected())
+                blender.addIngredient(new OrangeJuice());
+            
+            else if (lemonJuiceToggleButton.isSelected())
+                blender.addIngredient(new LemonJuice());
+            
+            else if (almondMilkToggleButton.isSelected())
+                blender.addIngredient(new AlmondMilk());
+            
+            sugar=sugarjSlider.getValue();
+            System.out.println(sugar);
+            blender.addIngredient(new Sugar(sugar));
+            
+            if(sprinklesToggleButton.isSelected())
+                blender.addIngredient(new Sprinkles());
+            
+            if(caramelToggleButton.isSelected())
+                blender.addIngredient(new Caramel());
+            
+            if(chocolateSauseToggleButton.isSelected())
+                blender.addIngredient(new ChocolateSause());
+            
+            if(whippedCreamToggleButton.isSelected())
+                blender.addIngredient(new WhippedCream());
+            
+            if(coconutFlakesToggleButton.isSelected())
+                blender.addIngredient(new CoconutFlakes());
+            
+            if(CherryToggleButton.isSelected())
+                blender.addIngredient(new Cherry());
+            
+            // cups  
+            Cup cup=null;
+            if (smallCupToggleButton.isSelected()){
+                double numberOfCups=  blender.getCocktailVolume() / SmallCup.getCupCapacity();
+                cup=new SmallCup(numberOfCups);
+                try {
+                    blender.pour(cup);
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+//Logger.getLogger(LiquidsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            else if (mediumCupToggleButton.isSelected())
+            {
+                 double numberOfCups=  blender.getCocktailVolume() / MediumCup.getCupCapacity();
+                 cup=new MediumCup(numberOfCups);
 
-    private void cherryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cherryButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cherryButtonActionPerformed
+                try {
+                    blender.pour(cup);
+                } catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                    //Logger.getLogger(LiquidsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            else if (largeCupToggleButton.isSelected())
+            {
+                 double numberOfCups=  blender.getCocktailVolume() / LargeCup.getCupCapacity();
+                 cup=new LargeCup(numberOfCups);
+                try {
+                    blender.pour(cup);
+                } 
+                catch (Exception ex) {
+                    System.out.println(ex.getMessage());
+                    //Logger.getLogger(LiquidsGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }  
+            
+            else{
+                JOptionPane.showMessageDialog(this, "You must choose a Cup Size","Warning",JOptionPane.ERROR_MESSAGE);
+            }
+            if (cup!=null){
+            
+                ResultOwnDrink result=new ResultOwnDrink(blender, cup);
+                result.show();
+                dispose();   
+                
+            }
+        }
+        catch (BlenderOverFlowException ex)
+        {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+//        catch(Exception e)
+//        {
+//            JOptionPane.showMessageDialog(this, "another exception");
+//            
+//        }
+      
+    }//GEN-LAST:event_finishButtonActionPerformed
 
-    private void chocolateSauseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chocolateSauseButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chocolateSauseButtonActionPerformed
+    private void dairyMilkToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dairyMilkToggleButtonActionPerformed
+       liquidFlag=true;
+            // TODO add your handling code here:
+    }//GEN-LAST:event_dairyMilkToggleButtonActionPerformed
 
-    private void caramelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caramelButtonActionPerformed
+    private void oatMilkToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oatMilkToggleButtonActionPerformed
+        liquidFlag=true;
         // TODO add your handling code here:
-    }//GEN-LAST:event_caramelButtonActionPerformed
+    }//GEN-LAST:event_oatMilkToggleButtonActionPerformed
 
-    private void coconutFlakesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutFlakesButtonActionPerformed
+    private void almondMilkToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_almondMilkToggleButtonActionPerformed
+        liquidFlag=true;
         // TODO add your handling code here:
-    }//GEN-LAST:event_coconutFlakesButtonActionPerformed
+    }//GEN-LAST:event_almondMilkToggleButtonActionPerformed
 
-    private void sprinklesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sprinklesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sprinklesButtonActionPerformed
+    private void orangeJuiceToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orangeJuiceToggleButtonActionPerformed
+        liquidFlag=true;        
+// TODO add your handling code here:
+    }//GEN-LAST:event_orangeJuiceToggleButtonActionPerformed
 
-    private void mediumCupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumCupButtonActionPerformed
+    private void smallCupToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smallCupToggleButtonActionPerformed
+        cupFlag=true;
         // TODO add your handling code here:
-    }//GEN-LAST:event_mediumCupButtonActionPerformed
+    }//GEN-LAST:event_smallCupToggleButtonActionPerformed
 
-    private void LargeCupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LargeCupButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LargeCupButtonActionPerformed
+    private void mediumCupToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mediumCupToggleButtonActionPerformed
+    cupFlag=true;       
+    // TODO add your handling code here:
+    }//GEN-LAST:event_mediumCupToggleButtonActionPerformed
 
-    private void smallCupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smallCupButtonActionPerformed
+    private void largeCupToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_largeCupToggleButtonActionPerformed
+        cupFlag=true;
         // TODO add your handling code here:
-    }//GEN-LAST:event_smallCupButtonActionPerformed
+    }//GEN-LAST:event_largeCupToggleButtonActionPerformed
 
-    private void jSlider1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSlider1MouseDragged
+    private void sprinklesToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sprinklesToggleButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1MouseDragged
+    }//GEN-LAST:event_sprinklesToggleButtonActionPerformed
 
-    private void jSlider1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jSlider1AncestorAdded
+    private void chocolateSauseToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chocolateSauseToggleButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jSlider1AncestorAdded
+    }//GEN-LAST:event_chocolateSauseToggleButtonActionPerformed
+
+    private void coconutFlakesToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_coconutFlakesToggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_coconutFlakesToggleButtonActionPerformed
+
+    private void caramelToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caramelToggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caramelToggleButtonActionPerformed
+
+    private void CherryToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CherryToggleButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CherryToggleButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -495,13 +678,14 @@ public class LiquidsGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LargeCupButton;
-    private javax.swing.JButton almondMilkButton;
-    private javax.swing.JButton caramelButton;
-    private javax.swing.JButton cherryButton;
-    private javax.swing.JButton chocolateSauseButton;
-    private javax.swing.JButton coconutFlakesButton;
-    private javax.swing.JButton dairyMilkButton;
+    private javax.swing.JToggleButton CherryToggleButton;
+    private javax.swing.JToggleButton almondMilkToggleButton;
+    private javax.swing.JToggleButton caramelToggleButton;
+    private javax.swing.JToggleButton chocolateSauseToggleButton;
+    private javax.swing.JToggleButton coconutFlakesToggleButton;
+    private javax.swing.ButtonGroup cupsButtonGroup;
+    private javax.swing.JToggleButton dairyMilkToggleButton;
+    private javax.swing.JButton finishButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -510,14 +694,19 @@ public class LiquidsGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSlider jSlider1;
-    private javax.swing.JButton lemonJuiceButton;
-    private javax.swing.ButtonGroup liquids;
-    private javax.swing.JButton mediumCupButton;
-    private javax.swing.JButton oatMilkButton;
-    private javax.swing.JButton orangeJuiceButton;
-    private javax.swing.JButton smallCupButton;
-    private javax.swing.JButton sprinklesButton;
-    private javax.swing.JButton whippedCreamButton;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JToggleButton largeCupToggleButton;
+    private javax.swing.JToggleButton lemonJuiceToggleButton;
+    private javax.swing.ButtonGroup liquidsButtonGroup;
+    private javax.swing.JToggleButton mediumCupToggleButton;
+    private javax.swing.JToggleButton oatMilkToggleButton;
+    private javax.swing.JToggleButton orangeJuiceToggleButton;
+    private javax.swing.JToggleButton smallCupToggleButton;
+    private javax.swing.JToggleButton sprinklesToggleButton;
+    private javax.swing.JSlider sugarjSlider;
+    private javax.swing.JToggleButton whippedCreamToggleButton;
     // End of variables declaration//GEN-END:variables
 }

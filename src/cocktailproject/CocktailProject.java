@@ -243,7 +243,7 @@ public class CocktailProject {
                                     blender.addIngredient(new Pineapple(pickAmount));
                                     break;
                                 case 9:
-                                    blender.addIngredient(new Roseberry(pickAmount));
+                                    blender.addIngredient(new Raspberry(pickAmount));
                                     break;
                                 case 10:
                                     blender.addIngredient(new Strawberry(pickAmount));

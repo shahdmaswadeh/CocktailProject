@@ -189,7 +189,7 @@ public class Welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_everythingFruitfulButtonActionPerformed
 
     private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
-         FruitsMenuNotUsed fruitMenu=new FruitsMenuNotUsed();
+         FruitMenu fruitMenu=new FruitMenu();
          fruitMenu.show();
          dispose();
         // TODO add your handling code here:
