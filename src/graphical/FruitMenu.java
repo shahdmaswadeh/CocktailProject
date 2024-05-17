@@ -3,18 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package graphical;
-
+import containers.Blender;
+import exceptions.BlenderOverFlowException;
+import fruits.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+        
 /**
  *
  * @author ASUS
  */
 public class FruitMenu extends javax.swing.JFrame {
-
+   private Blender blender;
     /**
      * Creates new form FruitMenu
      */
     public FruitMenu() {
         initComponents();
+        blender= new Blender();
     }
 
     /**
@@ -29,18 +35,18 @@ public class FruitMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
+        ContinueButton = new javax.swing.JButton();
+        AppleButton = new javax.swing.JToggleButton();
+        PineappleButton = new javax.swing.JToggleButton();
+        StrawberryButton = new javax.swing.JToggleButton();
+        RoseberryButton = new javax.swing.JToggleButton();
+        BananaButton = new javax.swing.JToggleButton();
+        BlueberryButton = new javax.swing.JToggleButton();
+        DatesButton = new javax.swing.JToggleButton();
+        GrapefruitButton = new javax.swing.JToggleButton();
+        OrangeButton = new javax.swing.JToggleButton();
+        MangoButton = new javax.swing.JToggleButton();
+        WatermelonButton = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,97 +62,97 @@ public class FruitMenu extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(0, 0, 51));
         jLabel21.setText("Strawberry");
 
-        jButton1.setBackground(new java.awt.Color(236, 80, 148));
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Continue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ContinueButton.setBackground(new java.awt.Color(236, 80, 148));
+        ContinueButton.setFont(new java.awt.Font("Script MT Bold", 0, 29)); // NOI18N
+        ContinueButton.setForeground(new java.awt.Color(255, 255, 255));
+        ContinueButton.setText("Continue");
+        ContinueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ContinueButtonActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/appleIcon.png"))); // NOI18N
-        jToggleButton1.setText("Apple");
-        jToggleButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AppleButton.setBackground(new java.awt.Color(218, 192, 203));
+        AppleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        AppleButton.setForeground(new java.awt.Color(69, 66, 66));
+        AppleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/appleIcon.png"))); // NOI18N
+        AppleButton.setText("Apple");
+        AppleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton2.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/pineapple.png"))); // NOI18N
-        jToggleButton2.setText("Pinapple");
-        jToggleButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PineappleButton.setBackground(new java.awt.Color(218, 192, 203));
+        PineappleButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        PineappleButton.setForeground(new java.awt.Color(69, 66, 66));
+        PineappleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/pineapple.png"))); // NOI18N
+        PineappleButton.setText("Pineapple");
+        PineappleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton3.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/strawberryIcon.png"))); // NOI18N
-        jToggleButton3.setText("Strawberry");
-        jToggleButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        StrawberryButton.setBackground(new java.awt.Color(218, 192, 203));
+        StrawberryButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        StrawberryButton.setForeground(new java.awt.Color(69, 66, 66));
+        StrawberryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/strawberryIcon.png"))); // NOI18N
+        StrawberryButton.setText("Strawberry");
+        StrawberryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton4.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton4.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/roseberry.png"))); // NOI18N
-        jToggleButton4.setText("Roseberry");
-        jToggleButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        RoseberryButton.setBackground(new java.awt.Color(218, 192, 203));
+        RoseberryButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        RoseberryButton.setForeground(new java.awt.Color(69, 66, 66));
+        RoseberryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/roseberry.png"))); // NOI18N
+        RoseberryButton.setText("Roseberry");
+        RoseberryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton5.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton5.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/banana.png"))); // NOI18N
-        jToggleButton5.setText("Banana");
-        jToggleButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BananaButton.setBackground(new java.awt.Color(218, 192, 203));
+        BananaButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        BananaButton.setForeground(new java.awt.Color(69, 66, 66));
+        BananaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/banana.png"))); // NOI18N
+        BananaButton.setText("Banana");
+        BananaButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton6.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton6.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton6.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/blueberry.png"))); // NOI18N
-        jToggleButton6.setText("Bluebarry");
-        jToggleButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BlueberryButton.setBackground(new java.awt.Color(218, 192, 203));
+        BlueberryButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        BlueberryButton.setForeground(new java.awt.Color(69, 66, 66));
+        BlueberryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/blueberry.png"))); // NOI18N
+        BlueberryButton.setText("Blueberry");
+        BlueberryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton7.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton7.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton7.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/dates.png"))); // NOI18N
-        jToggleButton7.setText("Dates");
-        jToggleButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DatesButton.setBackground(new java.awt.Color(218, 192, 203));
+        DatesButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        DatesButton.setForeground(new java.awt.Color(69, 66, 66));
+        DatesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/dates.png"))); // NOI18N
+        DatesButton.setText("Dates");
+        DatesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton8.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton8.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton8.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/grapefruit.png"))); // NOI18N
-        jToggleButton8.setText("Grapefruit");
-        jToggleButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        GrapefruitButton.setBackground(new java.awt.Color(218, 192, 203));
+        GrapefruitButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        GrapefruitButton.setForeground(new java.awt.Color(69, 66, 66));
+        GrapefruitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/grapefruit.png"))); // NOI18N
+        GrapefruitButton.setText("Grapefruit");
+        GrapefruitButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton9.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton9.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton9.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/orange.png"))); // NOI18N
-        jToggleButton9.setText("Orange");
-        jToggleButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        OrangeButton.setBackground(new java.awt.Color(218, 192, 203));
+        OrangeButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        OrangeButton.setForeground(new java.awt.Color(69, 66, 66));
+        OrangeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/orange.png"))); // NOI18N
+        OrangeButton.setText("Orange");
+        OrangeButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jToggleButton10.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton10.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton10.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/mango.png"))); // NOI18N
-        jToggleButton10.setText("Mango");
-        jToggleButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+        MangoButton.setBackground(new java.awt.Color(218, 192, 203));
+        MangoButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        MangoButton.setForeground(new java.awt.Color(69, 66, 66));
+        MangoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/mango.png"))); // NOI18N
+        MangoButton.setText("Mango");
+        MangoButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        MangoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton10ActionPerformed(evt);
+                MangoButtonActionPerformed(evt);
             }
         });
 
-        jToggleButton11.setBackground(new java.awt.Color(218, 192, 203));
-        jToggleButton11.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jToggleButton11.setForeground(new java.awt.Color(69, 66, 66));
-        jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/watermelon.png"))); // NOI18N
-        jToggleButton11.setText("Watermelon");
-        jToggleButton11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        WatermelonButton.setBackground(new java.awt.Color(218, 192, 203));
+        WatermelonButton.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        WatermelonButton.setForeground(new java.awt.Color(69, 66, 66));
+        WatermelonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fruitassets/watermelon.png"))); // NOI18N
+        WatermelonButton.setText("Watermelon");
+        WatermelonButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -160,26 +166,25 @@ public class FruitMenu extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(BananaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AppleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BlueberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DatesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RoseberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(95, 95, 95)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(GrapefruitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(OrangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MangoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(StrawberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PineappleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(221, 221, 221)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(182, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(WatermelonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,29 +192,29 @@ public class FruitMenu extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AppleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GrapefruitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(OrangeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BananaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MangoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlueberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(DatesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StrawberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RoseberryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PineappleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jToggleButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(WatermelonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 808, Short.MAX_VALUE)
+                .addComponent(ContinueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
@@ -228,16 +233,108 @@ public class FruitMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ContinueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContinueButtonActionPerformed
         LiquidsGUI liquid=new LiquidsGUI();
-        liquid.setVisible(true);
+         
+        if (AppleButton.isSelected()){
+            try {
+                blender.addIngredient(new Apple(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (BananaButton.isSelected()){
+            try {
+                blender.addIngredient(new Banana(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (GrapefruitButton.isSelected()){
+            try {
+                blender.addIngredient(new Grapefruits(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (BlueberryButton.isSelected()){
+            try {
+                blender.addIngredient(new Blueberry(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (DatesButton.isSelected()){
+            try {
+                blender.addIngredient(new Dates(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+       else if (MangoButton.isSelected()){
+            try {
+                blender.addIngredient(new Mango(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (OrangeButton.isSelected()){
+            try {
+                blender.addIngredient(new Orange(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (PineappleButton.isSelected()){
+            try {
+                blender.addIngredient(new Pineapple(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (RoseberryButton.isSelected()){
+            try {
+                blender.addIngredient(new Roseberry(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (StrawberryButton.isSelected()){
+            try {
+                blender.addIngredient(new Strawberry(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if (WatermelonButton.isSelected()){
+            try {
+                blender.addIngredient(new Watermelon(2));
+                // blender.addIgredient(new Apple(2));
+            } catch (BlenderOverFlowException ex) {
+                Logger.getLogger(FruitMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        liquid.show();
+        dispose();
+        
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ContinueButtonActionPerformed
 
-    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+    private void MangoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MangoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton10ActionPerformed
+    }//GEN-LAST:event_MangoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,20 +372,20 @@ public class FruitMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JToggleButton AppleButton;
+    private javax.swing.JToggleButton BananaButton;
+    private javax.swing.JToggleButton BlueberryButton;
+    private javax.swing.JButton ContinueButton;
+    private javax.swing.JToggleButton DatesButton;
+    private javax.swing.JToggleButton GrapefruitButton;
+    private javax.swing.JToggleButton MangoButton;
+    private javax.swing.JToggleButton OrangeButton;
+    private javax.swing.JToggleButton PineappleButton;
+    private javax.swing.JToggleButton RoseberryButton;
+    private javax.swing.JToggleButton StrawberryButton;
+    private javax.swing.JToggleButton WatermelonButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
     // End of variables declaration//GEN-END:variables
 }

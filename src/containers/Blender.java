@@ -215,7 +215,16 @@ public boolean isEmpty()
             return"No Color to display";
     }
     
-    
+    public String getIngredientsString()
+    {
+        String allIngredients="Ingredients : ";
+        for(int i =0;i<ingredientList.size();++i)
+        {
+            allIngredients+="  , "+ingredientList.get(i).getName();
+        }
+        return allIngredients;
+        
+    }
     
    
     

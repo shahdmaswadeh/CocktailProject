@@ -48,6 +48,19 @@ public class CocktailProject {
         System.out.println("Date : " + date + "\nTime : " + time);
 
         fLogger.log("\nStarted in : " + date + "  at : " + time);
+        
+        
+        //test blender 
+        
+        blender.addIngredient(new Strawberry(2));
+        blender.addIngredient(new Apple(2));
+        blender.addIngredient(new Orange(2));
+        blender.addIngredient(new Sprinkles());
+        blender.addIngredient(new WhippedCream());
+        blender.addIngredient(new Sugar(1));
+        blender.blend();
+        System.out.println(blender.getInfo());
+        
 
         //Welcome
         System.out.println("Welcome to our shop \"Everything FruitFull !\"\nWe have the best Cocktails EVER!");

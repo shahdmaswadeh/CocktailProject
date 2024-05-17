@@ -3,18 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/Result.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/EverythingFruitfulDrinks.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/containers/Blender.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/FruitsMenuNotUsed.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/LiquidsGUI.java</file>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/FruitsMenu.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/FruitMenu.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/DataBaseLogger.java</file>
-            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/FruitsSecond.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/gui/CocktailGUI.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/icons/galaxy_resized.png</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/ResultOwnDrink.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/historylog/DataBaseLoggerTwo.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/cocktailproject/CocktailProject.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/Welcome.java</file>
+            <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/graphical/ResultFrame.java</file>
             <file>file:/C:/Users/عسثق/Documents/NetBeansProjects/CocktailProject/src/gui/MakeOwnCocktail.java</file>
         </group>
     </open-files>

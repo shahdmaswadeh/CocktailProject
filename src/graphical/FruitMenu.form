@@ -60,33 +60,31 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jToggleButton5" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton1" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton6" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton7" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton4" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="BananaButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="AppleButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="BlueberryButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="DatesButton" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="RoseberryButton" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jToggleButton8" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton9" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton10" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton3" min="-2" pref="200" max="-2" attributes="0"/>
-                              <Component id="jToggleButton2" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="GrapefruitButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="OrangeButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="MangoButton" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="StrawberryButton" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="PineappleButton" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="202" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jToggleButton11" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="WatermelonButton" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="ContinueButton" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="182" max="32767" attributes="0"/>
+                  <EmptySpace pref="86" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,34 +94,34 @@
                   <Component id="jLabel2" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton1" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jToggleButton8" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="AppleButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="GrapefruitButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton9" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jToggleButton5" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="OrangeButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="BananaButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton10" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jToggleButton6" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="MangoButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="BlueberryButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton7" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jToggleButton3" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="DatesButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="StrawberryButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jToggleButton4" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="jToggleButton2" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="RoseberryButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Component id="PineappleButton" alignment="3" min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jToggleButton11" min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="WatermelonButton" min="-2" pref="57" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace pref="808" max="32767" attributes="0"/>
+                  <Component id="ContinueButton" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace pref="82" max="32767" attributes="0"/>
                   <Component id="jLabel21" min="-2" pref="0" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               </Group>
@@ -153,13 +151,13 @@
             <Property name="text" type="java.lang.String" value="Strawberry"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="ContinueButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="94" green="50" red="ec" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Black" size="18" style="0"/>
+              <Font name="Script MT Bold" size="29" style="0"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -167,10 +165,10 @@
             <Property name="text" type="java.lang.String" value="Continue"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContinueButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+        <Component class="javax.swing.JToggleButton" name="AppleButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -192,7 +190,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton2">
+        <Component class="javax.swing.JToggleButton" name="PineappleButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -206,7 +204,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/assets/fruitassets/pineapple.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Pinapple"/>
+            <Property name="text" type="java.lang.String" value="Pineapple"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -214,7 +212,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton3">
+        <Component class="javax.swing.JToggleButton" name="StrawberryButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -236,7 +234,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton4">
+        <Component class="javax.swing.JToggleButton" name="RoseberryButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -258,7 +256,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton5">
+        <Component class="javax.swing.JToggleButton" name="BananaButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -280,7 +278,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton6">
+        <Component class="javax.swing.JToggleButton" name="BlueberryButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -294,7 +292,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/assets/fruitassets/blueberry.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Bluebarry"/>
+            <Property name="text" type="java.lang.String" value="Blueberry"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -302,7 +300,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton7">
+        <Component class="javax.swing.JToggleButton" name="DatesButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -324,7 +322,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton8">
+        <Component class="javax.swing.JToggleButton" name="GrapefruitButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -346,7 +344,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton9">
+        <Component class="javax.swing.JToggleButton" name="OrangeButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -368,7 +366,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton10">
+        <Component class="javax.swing.JToggleButton" name="MangoButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
@@ -390,10 +388,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton10ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MangoButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="jToggleButton11">
+        <Component class="javax.swing.JToggleButton" name="WatermelonButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="c0" red="da" type="rgb"/>
